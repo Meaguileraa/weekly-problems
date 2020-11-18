@@ -8,4 +8,6 @@
 def max_num(num_list):
     """Returns largest integer from given list"""
 
+    return max(num_list)
+
 print(max_num([5, 3, 6, 2, 1])) #6
