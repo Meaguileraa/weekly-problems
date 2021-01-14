@@ -33,43 +33,42 @@ print(count_recursively([1, 2, 3])) #3
 
 #3. Reverse Linked List 
 
-class Node(object):
-    """Class in a linked list."""
+# class Node(object):
+#     """Class in a linked list."""
 
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
+#     def __init__(self, data, next=None):
+#         self.data = data
+#         self.next = next
 
-    def as_string(self):
-        """Represent data for this node and it's successors as a string.
+#     def as_string(self):
+#         """Represent data for this node and it's successors as a string.
 
-        Node(3).as_string()
-        '3'
+#         Node(3).as_string()
+#         '3'
 
-        Node(3, Node(2, Node(1))).as_string()
-        '321'
-        """
+#         Node(3, Node(2, Node(1))).as_string()
+#         '321'
+#         """
 
-        out = []
-        n = self
+#         out = []
+#         n = self
 
-        while n:
-            out.append(str(n.data))
-            n = n.next
+#         while n:
+#             out.append(str(n.data))
+#             n = n.next
 
-        return "".join(out)
+#         return "".join(out)
     
-    def reverse_linked_list(head):
-    """Given LL head node, return head node of new, reversed linked list.
+#     def reverse_linked_list(head):
+#         """Given LL head node, return head node of new, reversed linked list."""
 
-    ll = Node(1, Node(2, Node(3)))
-    reverse_linked_list(ll).as_string()
-    '321'
-    """
+#     # ll = Node(1, Node(2, Node(3)))
+#     # reverse_linked_list(ll).as_string()
+#     # '321'
 
-ll = Node(1, Node(2, Node(3)))
-new_ll = reverse_linked_list(ll)
-new_ll.as_string() #'321'
+#     ll = Node(1, Node(2, Node(3)))
+#     new_ll = reverse_linked_list(ll)
+#     new_ll.as_string() #'321'
 
 ####################################################################
 
@@ -88,8 +87,60 @@ new_ll.as_string() #'321'
 def has_balanced_parens(phrase):
     """Does a string have balanced parentheses?"""
 
+#     result = False
+
+#     open_count = 0
+#     close_count = 0
+
+#     for char in phrase:
+#         if char == "(":
+#             open_count += 1
+
+#         if char == ")":
+#             close_count += 1
+    
+#         if open_count < close_count:
+#             return result 
 
 
+#     if open_count == close_count:
+#         result = True
+
+        
+# #open has to come first 
+#     return result
+
+        # pair = "()"
+
+        # if char == "(": #no open parenthesis then false
+# (  ) (
+
+# )(
+    #for every open parenthesis there has to be a closed parenthesis 
+
+
+    parenthesis = []
+    result = True
+
+    for char in phrase:
+        if char == "(":
+            parenthesis.append(char)
+        if char == ")" and len(parenthesis) < 1: #seeing a closed before an open 
+            result = False
+        if char == ")" and len(parenthesis) >= 1:
+            parenthesis.pop()
+    
+
+    if len(parenthesis) == 0:
+        return result 
+
+    else: 
+        result = False 
+    return result
+    
+
+
+        
 
 
 print(has_balanced_parens("()")) #True
@@ -98,14 +149,41 @@ print(has_balanced_parens("((There's a bonus open paren here.)")) #False
 print(has_balanced_parens(")")) #False
 print(has_balanced_parens("(")) #False
 print(has_balanced_parens("(This has (too many closes.) ) )")) #False
+print(has_balanced_parens(")(")) #False
 
 
 
 
 
+# def spiral(matrix_size):
+#     """Spiral coordinates of a matrix of `matrix_size` size."""
 
 
+####################################################################
 
 
-#2. Is Palidrome
-#3. Spiral 
+# Write a function, find_longest_word, that takes a list of words and returns the 
+# length of the longest one.
+
+# >>> find_longest_word(["hi", "hello"])
+# 5
+
+# >>> find_longest_word(["Balloonicorn", "Hackbright"])
+# 12
+# We’ve given you longest-word.py, which includes the stub of a find_longest_word function:
+
+# longest-word.py
+def find_longest_word(words):
+    """Return longest word in list of words."""
+    lengths = []
+
+    for word in words: 
+        l = len(word)
+        lengths.append(l)
+        result = max(lengths)
+    return result
+
+
+print(find_longest_word(["hi", "hello"]))# 5
+
+print(find_longest_word(["Balloonicorn", "Hackbright"])) # 12
