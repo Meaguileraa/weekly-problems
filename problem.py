@@ -175,14 +175,17 @@ print(has_balanced_parens(")(")) #False
 # longest-word.py
 def find_longest_word(words):
     """Return longest word in list of words."""
-    lengths = []
+    
+    # lengths = []
 
-    for word in words: 
-        l = len(word)
-        lengths.append(l)
-        result = max(lengths)
-    return result
+    # for word in words: 
+    #     l = len(word)
+    #     lengths.append(l)
+    #     result = max(lengths)
+    # return result
 
+    #ALT SOLUTION ONE LINE 
+    return len(max(words, key=lambda words: len(words)))
 
 print(find_longest_word(["hi", "hello"]))# 5
 print(find_longest_word(["Balloonicorn", "Hackbright"])) # 12
