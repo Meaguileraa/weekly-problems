@@ -185,5 +185,28 @@ def find_longest_word(words):
 
 
 print(find_longest_word(["hi", "hello"]))# 5
-
 print(find_longest_word(["Balloonicorn", "Hackbright"])) # 12
+
+
+
+# Count the number of items in a list, using recursion.
+
+# For example:
+
+# >>> count_recursively([])
+# 0
+
+# >>> count_recursively([1, 2, 3])
+# 3
+# We’ve written a file, countrecursively.py, with a function, count_recursively:
+
+def count_recursively(lst):
+    """Return number of items in a list, using recursion."""
+
+    if len(lst) == 0: 
+        return 0
+    else: 
+        return 1 + count_recursively(lst[1:])
+
+print(count_recursively([])) # 0
+print(count_recursively([1, 2, 3])) # 3
