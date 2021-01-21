@@ -138,11 +138,6 @@ def has_balanced_parens(phrase):
         result = False 
     return result
     
-
-
-        
-
-
 print(has_balanced_parens("()")) #True
 print(has_balanced_parens("(Oh Noes!)(")) #False
 print(has_balanced_parens("((There's a bonus open paren here.)")) #False
@@ -213,3 +208,55 @@ def count_recursively(lst):
 
 print(count_recursively([])) # 0
 print(count_recursively([1, 2, 3])) # 3
+
+
+# 01/20 weekly problems 
+
+def primes(count):
+    """Return count number of prime numbers, starting at 2."""
+
+    prime_numbers = []
+    prime = 2 
+
+    # if count % 2 == 0 or count <2:
+    #     return False 
+
+    # while count > 0:
+    
+
+    return prime_numbers
+     
+
+print(primes(1)) #[2]
+print(primes(5))#[2, 3, 5, 7, 11]
+
+
+def can_win(n):
+    """Can this player win takeaway?"""
+
+    # 2, 3, 5 stones/moves from the pool 
+    moves = [2, 3, 5]
+    result = False
+    
+    #cant move return false 
+    if n <2:
+        return result 
+
+    for move in moves: 
+        # if we win and opponent cant mat win with the move made result = True 
+        if not can_win(n-move):
+            result = True
+            return result
+    return result 
+        #else return result 
+
+print(can_win(1)) #False
+print(can_win(2)) #True
+print(can_win(3)) #True
+print(can_win(4)) #True
+print(can_win(5)) #True
+print(can_win(6)) #True
+print(can_win(7)) #False
+print(can_win(8)) #False
+print(can_win(9)) #True
+print(can_win(10)) #True 
